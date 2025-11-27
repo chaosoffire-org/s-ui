@@ -251,13 +251,13 @@ func (s *InboundService) hasUser(inboundType string) bool {
 }
 
 func (s *InboundService) fetchUsers(db *gorm.DB, inboundType string, condition string, inbound map[string]interface{}) ([]json.RawMessage, error) {
-	if inboundType == "shadowtls" {
+	switch inboundType {
+	case "shadowtls":
 		version, _ := inbound["version"].(float64)
 		if int(version) < 3 {
 			return nil, nil
 		}
-	}
-	if inboundType == "shadowsocks" {
+	case "shadowsocks":
 		method, _ := inbound["method"].(string)
 		if method == "2022-blake3-aes-128-gcm" {
 			inboundType = "shadowsocks16"
@@ -279,7 +279,7 @@ func (s *InboundService) fetchUsers(db *gorm.DB, inboundType string, condition s
 		json.Unmarshal([]byte(user), &userConfig)
 
 		if inboundType == "vless" {
-			if _, tlsEnabled := inbound["tls"]; !tlsEnabled {
+			if tlsValue, tlsEnabled := inbound["tls"]; !tlsEnabled || tlsValue == nil {
 				delete(userConfig, "flow")
 			} else {
 				if flowInboundTags, ok := userConfig["flow_inbound_tags"].([]interface{}); ok && len(flowInboundTags) > 0 {
