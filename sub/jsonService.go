@@ -3,6 +3,7 @@ package sub
 import (
 	"encoding/json"
 	"fmt"
+	"regexp"
 	"strings"
 
 	"github.com/alireza0/s-ui/database"
@@ -98,7 +99,13 @@ func (j *JsonService) GetJson(subId string, format string) (*string, []string, e
 func (j *JsonService) getData(subId string) (*model.Client, []*model.Inbound, error) {
 	db := database.GetDB()
 	client := &model.Client{}
-	err := db.Model(model.Client{}).Where("enable = true and name = ?", subId).First(client).Error
+	isUUID, _ := regexp.MatchString(`^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$`, subId)
+	var err error
+	if isUUID {
+		err = db.Model(model.Client{}).Where("enable = true and name LIKE ?", "%-"+subId).First(client).Error
+	} else {
+		err = db.Model(model.Client{}).Where("enable = true and name = ?", subId).First(client).Error
+	}
 	if err != nil {
 		return nil, nil, err
 	}
