@@ -3,6 +3,7 @@ package sub
 import (
 	"encoding/base64"
 	"fmt"
+	"regexp"
 	"strings"
 	"time"
 
@@ -45,9 +46,21 @@ func (s *SubService) GetSubs(subId string) (*string, []string, error) {
 }
 
 func (j *SubService) getClientBySubId(subId string) (*model.Client, error) {
+
 	db := database.GetDB()
 	client := &model.Client{}
-	err := db.Model(model.Client{}).Where("enable = true and name = ?", subId).First(client).Error
+
+	// Check if subId is a UUID
+	isUUID, _ := regexp.MatchString(`^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$`, subId)
+
+	var err error
+
+	if isUUID {
+		err = db.Model(model.Client{}).Where("enable = true and name LIKE ?", "%-"+subId).First(client).Error
+	} else {
+		err = db.Model(model.Client{}).Where("enable = true and name = ?", subId).First(client).Error
+	}
+
 	if err != nil {
 		return nil, err
 	}
