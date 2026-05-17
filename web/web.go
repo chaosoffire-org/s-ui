@@ -13,12 +13,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/alireza0/s-ui/api"
-	"github.com/alireza0/s-ui/config"
-	"github.com/alireza0/s-ui/logger"
-	"github.com/alireza0/s-ui/middleware"
-	"github.com/alireza0/s-ui/network"
-	"github.com/alireza0/s-ui/service"
+	"github.com/chaosoffire-org/s-ui/api"
+	"github.com/chaosoffire-org/s-ui/config"
+	"github.com/chaosoffire-org/s-ui/logger"
+	"github.com/chaosoffire-org/s-ui/middleware"
+	"github.com/chaosoffire-org/s-ui/network"
+	"github.com/chaosoffire-org/s-ui/service"
 
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-contrib/sessions"

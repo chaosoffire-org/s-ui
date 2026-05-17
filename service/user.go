@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/alireza0/s-ui/database"
-	"github.com/alireza0/s-ui/database/model"
-	"github.com/alireza0/s-ui/logger"
-	"github.com/alireza0/s-ui/util/common"
+	"github.com/chaosoffire-org/s-ui/database"
+	"github.com/chaosoffire-org/s-ui/database/model"
+	"github.com/chaosoffire-org/s-ui/logger"
+	"github.com/chaosoffire-org/s-ui/util/common"
 )
 
 type UserService struct {

@@ -3,14 +3,14 @@ package app
 import (
 	"log"
 
-	"github.com/alireza0/s-ui/config"
-	"github.com/alireza0/s-ui/core"
-	"github.com/alireza0/s-ui/cronjob"
-	"github.com/alireza0/s-ui/database"
-	"github.com/alireza0/s-ui/logger"
-	"github.com/alireza0/s-ui/service"
-	"github.com/alireza0/s-ui/sub"
-	"github.com/alireza0/s-ui/web"
+	"github.com/chaosoffire-org/s-ui/config"
+	"github.com/chaosoffire-org/s-ui/core"
+	"github.com/chaosoffire-org/s-ui/cronjob"
+	"github.com/chaosoffire-org/s-ui/database"
+	"github.com/chaosoffire-org/s-ui/logger"
+	"github.com/chaosoffire-org/s-ui/service"
+	"github.com/chaosoffire-org/s-ui/sub"
+	"github.com/chaosoffire-org/s-ui/web"
 
 	"github.com/op/go-logging"
 )

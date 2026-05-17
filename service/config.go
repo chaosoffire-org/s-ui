@@ -6,11 +6,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/alireza0/s-ui/core"
-	"github.com/alireza0/s-ui/database"
-	"github.com/alireza0/s-ui/database/model"
-	"github.com/alireza0/s-ui/logger"
-	"github.com/alireza0/s-ui/util/common"
+	"github.com/chaosoffire-org/s-ui/core"
+	"github.com/chaosoffire-org/s-ui/database"
+	"github.com/chaosoffire-org/s-ui/database/model"
+	"github.com/chaosoffire-org/s-ui/logger"
+	"github.com/chaosoffire-org/s-ui/util/common"
 )
 
 var (
