@@ -8,6 +8,8 @@
 [![License](https://img.shields.io/badge/license-GPL%20V3-blue.svg?longCache=true)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 > **Disclaimer:** This project is only for personal learning and communication, please do not use it for illegal purposes, please do not use it in a production environment
+>
+> **Fork Notice:** This repository is a fork of [alireza0/s-ui](https://github.com/alireza0/s-ui). It is not affiliated with or endorsed by the original author.
 
 **If you think this project is helpful to you, you may wish to give a**:star2:
 
